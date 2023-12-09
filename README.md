@@ -15,43 +15,43 @@ This application serves as a backend for a blog platform, providing essential op
 ```mermaid
 erDiagram
 users {
-    integer id
-    varchar(255) name
-    varchar(255) email
-    text password
-    text image
+    id integer
+    name varchar(255)
+    email varchar(255)
+    password text
+    image text
 }
 
 blogs {
-    integer id
-    integer author_id
-    varchar(255) title
-    text content
-    text image_cover
+    id integer
+    author_id integer
+    title varchar(255)
+    content text
+    image_cover text
 }
 
 topics {
-    integer id
-    integer author_id
-    varchar(255) name
+    id integer
+    author_id integer
+    name varchar(255)
     
 }
 
 blog_topics {
-    integer blog_id
-    integer topic_id
+    blog_id integer
+    topic_id integer
 }
 
 comments {
-    integer id
-    integer blog_id
-    integer author_id
+    id integer
+    blog_id integer
+    author_id integer
 }
 
 likes {
-    integer id
-    integer blog_id
-    integer user_id
+    id integer
+    blog_id integer
+    user_id integer
 }
 blogs ||--o{ comments:has
 blogs ||--o{ likes:has
