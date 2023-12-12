@@ -17,6 +17,11 @@ func GlobalErrorHandler() gin.HandlerFunc {
 						"message": err,
 						"stack":   string(debug.Stack()),
 					})
+				} else {
+					ctx.JSON(500, gin.H{
+						"status":  "Error",
+						"message": err,
+					})
 				}
 				ctx.Abort()
 				return
