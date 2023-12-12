@@ -7,7 +7,7 @@ import (
 type Topic struct {
 	gorm.Model
 	Name  string `gorm:"type:varchar(100);not null;unique" json:"name" binding:"required" form:"name"`
-	Blogs []Blog `gorm:"many2many:blog_topics"`
+	Blogs []Blog `gorm:"many2many:blog_topics;constraint:OnUpdate:SET NULL,OnDelete:SET NULL;"`
 }
 
 type TopicResponse struct {
