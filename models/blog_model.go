@@ -11,7 +11,7 @@ type Blog struct {
 	ImageCover string    `gorm:"type:varchar; not null"`
 	AuthorID   uint      `gorm:"not null"`
 	Author     User      `gorm:"foreignKey:AuthorID;constraint:OnUpdate:CASCADE,OnDelete:CASCADE;"`
-	Topics     []Topic   `gorm:"many2many:blog_topics;constraint:OnUpdate:SET NULL,OnDelete:CASCADE;"`
+	Topics     []Topic   `gorm:"many2many:blog_topics;constraint:OnUpdate:SET NULL,OnDelete:SET NULL;"`
 	Comments   []Comment `gorm:"foreignKey:BlogID;constraint:OnUpdate:CASCADE,OnDelete:CASCADE;"`
 	Likes      []Like    `gorm:"foreignKey:BlogID;constraint:OnUpdate:CASCADE,OnDelete:CASCADE;"`
 }
