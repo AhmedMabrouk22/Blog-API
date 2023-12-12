@@ -9,7 +9,7 @@ import (
 
 func GlobalErrorHandler() gin.HandlerFunc {
 	return func(ctx *gin.Context) {
-		func() {
+		defer func() {
 			if err := recover(); err != nil {
 				if os.Getenv("ENV_MOD") == "development" {
 					ctx.JSON(500, gin.H{
